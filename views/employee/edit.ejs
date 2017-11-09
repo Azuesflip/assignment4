@@ -1,0 +1,12 @@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/employee/list">Employees</a></li>
+    <li class="breadcrumb-item active">Edit</li>
+</ol>
+<h1 class="display-4">Edit Employee</h1>
+<form method="post" action="/employee/update/<%= employee.id %>">
+    <div class="form-group">
+        <label for="employeename">Employee Name</label>
+        <input type="text" name="employeename" class="form-control">
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary">
+</form>

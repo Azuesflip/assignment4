@@ -1,0 +1,24 @@
+<h1 class="display-4">Roles</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% roles.forEach(function(role){ %>
+            <tr>
+                <td><%= role.id %></td>
+                <td><%= role.name %></td>
+                <td>
+                    <a href="/role/edit/<%= role.id %>" class="btn btn-primary">Edit</a>
+                    <form class="d-inline" action="/role/delete/<%= role.id %>" method="post">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>

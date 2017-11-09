@@ -1,0 +1,26 @@
+<h1 class="display-4">Employees</h1>
+<a href="/employee/add">Add</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Employee Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% employees.forEach(function(employees){ %>
+            <tr>
+                <td><%= employees.id %></td>
+                <td><%= employees.employeename %></td>
+                <td><%= employees.role %></td>
+                <td>
+                    <a href="/employee/edit/<%= employees.id %>" class="btn btn-primary">Edit</a>
+                    <form class="d-inline" action="/employee/delete/<%= employees.id %>" method="post">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>

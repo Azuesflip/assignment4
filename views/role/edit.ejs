@@ -1,0 +1,16 @@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/roles/list">Roles</a></li>
+    <li class="breadcrumb-item active">Edit</li>
+</ol>
+<h1 class="display-4">Edit Role</h1>
+<form method="post" action="/roles/update/<%= role.id %>">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="employee">Employee</label>
+        <textarea name="employee" class="form-control"><%= role.employee %></textarea>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary">
+</form>

@@ -36,7 +36,7 @@ module.exports = {
             }
 
             console.log('Found "%s"', role.id);
-            Employee.create({employeename:employeename}).exec(function(err, newEmployee){
+            Employee.create({employeename:employeename, role:role}).exec(function(err, newEmployee){
                 if(err){
                 }
                 console.log(role);

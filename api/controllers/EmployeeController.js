@@ -7,7 +7,7 @@
 
 module.exports = {
 	list:function(req, res){
-        Employee.find({}).exec(function(err, employee){
+        Employee.find({}).populate('roles').exec(function(err, employee){
             if(err){
                 res.send(500, {error: 'Database Error'});
             }
@@ -82,6 +82,6 @@ module.exports = {
         });
 
         return false;
-	}
+}
 };
 

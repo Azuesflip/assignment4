@@ -13,7 +13,7 @@ module.exports = {
   		unique: 'true'
   	},
 
-  	roles: {
+  	roles:{
   		collection: 'Role',
   		via: 'id'
   	}

@@ -9,14 +9,21 @@
         </tr>
     </thead>
     <tbody>
-        <% employees.forEach(function(employees){ %>
+        <% employees.forEach(function(employee){ %>
             <tr>
-                <td><%= employees.id %></td>
-                <td><%= employees.employeename %></td>
-                <td><%= employees.role %></td>
+                <td><%= employee.id %></td>
+                <td><%= employee.employeename %></td>
                 <td>
-                    <a href="/employee/edit/<%= employees.id %>" class="btn btn-primary">Edit</a>
-                    <form class="d-inline" action="/employee/delete/<%= employees.id %>" method="post">
+                <ul>
+                <% employee.roles.forEach(function(role){ %>
+                <li><%= role.name %></li>
+                <% }) %>
+                </ul>
+                </td>
+                <td>
+                    <a href="/employee/createrole/<%= employee.id %>" class="btn btn-primary">Add Role</a>
+                    <a href="/employee/edit/<%= employee.id %>" class="btn btn-primary">Edit</a>
+                    <form class="d-inline" action="/employee/delete/<%= employee.id %>" method="post">
                         <input type="submit" value="Delete" class="btn btn-danger">
                     </form>
                 </td>

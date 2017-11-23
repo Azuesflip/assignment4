@@ -1,0 +1,19 @@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/employees/list">Employees</a></li>
+    <li class="breadcrumb-item active">Add Role</li>
+</ol>
+<h1 class="display-4">Add Employee Role</h1>
+<form method="post" action="/employee/addrole">
+    <div class="form-group">
+        <label for="employeename">Employee Id</label>
+        <input type="text" name="employeename" class="form-control" value='<%=employeeid%>'>
+    </div>
+    <div class="control-group">
+        <select class="selectpicker" data-style="btn-info" name="selectpicker">
+        <% roles.forEach(function(roles){ %>
+           <option><%=roles.name%></option>
+        <% }) %>
+    </select>
+    </div>  
+    <input type="submit" value="Submit" class="btn btn-primary">
+</form>

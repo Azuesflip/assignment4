@@ -20,6 +20,36 @@ module.exports = {
             res.view({roles:role});
         });
     },
+    createrole: function(req, res){
+        Role.find({}).exec(function(err, role) {
+            if (err) {return res.serverError(err);}
+            res.view({roles:role, employeeid:req.params.id});
+        });
+    },
+    addrole:function(req, res){
+        var employeename = req.body.employeename;
+        console.log(employeename);
+        var roles = req.body.selectpicker;
+        console.log(roles);
+
+        Employee.findOne(employeename).exec(function(err, employee){
+            if(err){
+                res.send(500, {error: 'Database Error'});
+            }
+            Role.findOne({name:roles}).exec(function (err, role){
+                if (err) {
+                    return res.serverError(err);
+                }
+                if (!role) {
+                    return res.notFound('Could not find role, sorry.');
+                }
+                console.log(role);
+                employee.roles.add(role.id);
+                employee.save();
+            });
+        });
+        res.redirect('/employee/list');
+    },
     create:function(req, res){
         
         var employeename = req.body.employeename;
